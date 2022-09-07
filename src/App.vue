@@ -1,5 +1,6 @@
 <template>
   <div>
+    <LoaderContent/>
     <MainHeader/>
     <MainContent/>
   </div>
@@ -9,13 +10,15 @@
 <script>
 import MainContent from './components/MainContent.vue';
 import MainHeader from './components/MainHeader.vue';
+import LoaderContent from './components/LoaderContent.vue';
 
 
 export default {
   name: 'App',
   components: {
+    LoaderContent,
     MainHeader,
-    MainContent,
+    MainContent   
   }
 }
 </script>
@@ -30,5 +33,9 @@ export default {
 
 img {
   max-width: 100%;
+}
+
+.active {
+  display: block;
 }
 </style>

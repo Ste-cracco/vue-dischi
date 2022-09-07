@@ -21,17 +21,19 @@ import CreazioneCard from "./CreazioneCard.vue"
         }
     },
 
-    created() {       
-        axios.get("https://flynn.boolean.careers/exercises/api/array/music")
-        .then((res) => {
-            this.listaDischi = res.data.response
-            console.log(res.data.response)
-        })        
+    mounted() {       
+        setTimeout(() => {
+            axios.get("https://flynn.boolean.careers/exercises/api/array/music")
+            .then((res) => {
+                this.listaDischi = res.data.response
+                console.log(res.data.response)
+            })      
+        },2000)
     }
   }
 </script>
   
-  <style lang="scss" scoped>
+<style lang="scss" scoped>
 
     main {
         background-color: #1E2D3B;
@@ -43,5 +45,5 @@ import CreazioneCard from "./CreazioneCard.vue"
         }
     }
 
-  </style>
+</style>
   
