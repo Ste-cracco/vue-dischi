@@ -1,8 +1,8 @@
 <template>
   <div>
     <LoaderContent/>
-    <MainHeader/>
-    <MainContent/>
+    <MainHeader @search="onSearch"/>
+    <MainContent :cerca="cercaProp"/>
   </div>
     
 </template>
@@ -15,10 +15,23 @@ import LoaderContent from './components/LoaderContent.vue';
 
 export default {
   name: 'App',
+  data() {
+    return {
+      cercaProp: ''
+    }
+  },
+
   components: {
     LoaderContent,
     MainHeader,
     MainContent   
+  },
+
+  methods: {
+    onSearch(data) {
+      this.cercaProp = data
+      console.log(data)
+    }
   }
 }
 </script>

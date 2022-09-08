@@ -1,8 +1,8 @@
 <template>
     <div>
-        <div :class= " show === true ? 'preloader' : 'pippo' ">
+        <!-- <div :class= " show === true ? 'preloader' : 'pippo' "> 
             <span>Caricamento in corso...</span>
-        </div>
+        </div> -->
     </div>
 </template>
 
@@ -16,14 +16,14 @@
             }
         },
         mounted() {
-            this.Toggle()
+            // this.Toggle()
         },
         methods: {
-            Toggle() {
-                setTimeout(() => {
-                    this.show = false
-                }, 2000)
-            }
+            // Toggle() {
+            //     setTimeout(() => {
+            //         this.show = false
+            //     }, 2000)
+            // }
         }
     }
     

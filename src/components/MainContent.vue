@@ -1,7 +1,7 @@
 <template>
     <main>
       <div class="container">
-        <CreazioneCard :infoAlbum = "listaDischi" /> <!-- infoAlbum nome della props -->
+        <CreazioneCard :infoAlbum = "arrayFiltrato" /> <!-- Gli passo a infoAlbum (nome della props) l'array filtrato della computed -->
       </div>
     </main>
   </template>
@@ -15,20 +15,35 @@ import CreazioneCard from "./CreazioneCard.vue"
     CreazioneCard
     },
 
-    data() {
-        return {
-            listaDischi: []
-        }
+    props: {
+      cerca: String
     },
 
-    mounted() {       
-        setTimeout(() => {
+    data() {
+        return {
+            listaDischi: [],
+            // cerca: ''
+        }
+    },
+    computed: {
+      arrayFiltrato() {
+        return this.listaDischi.filter((element) => {
+          const genereAlbum = element.genre.toLowerCase()
+
+          if(genereAlbum.includes(this.cerca)) {
+            return true
+          }
+          return false
+        })
+      }
+    },
+
+    mounted() {      
             axios.get("https://flynn.boolean.careers/exercises/api/array/music")
             .then((res) => {
                 this.listaDischi = res.data.response
                 console.log(res.data.response)
             })      
-        },2000)
     }
   }
 </script>
